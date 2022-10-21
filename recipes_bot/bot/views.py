@@ -15,7 +15,7 @@ def add_recipe(request):
     if request.method == 'POST':
         form = AddRecipeForm(request.POST, request.FILES)
         if form.is_valid():
-            recipe = form.save(commit=True)
+            form.save(commit=True)
             return HttpResponseRedirect('/')
     else:
         form = AddRecipeForm()
