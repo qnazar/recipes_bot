@@ -106,7 +106,7 @@ def recipe_info(message: Message):
         bot.send_message(message.from_user.id, 'Обери рецепт зі списку нижче')
     else:
         if recipe.photo:
-            photo = os.path.join(settings.MEDIA_ROOT, str(recipe.photo))
+            photo = os.path.join(settings.BASE_DIR, settings.MEDIA_ROOT, str(recipe.photo))
             with open(photo, 'rb') as photo:
                 bot.send_photo(message.from_user.id, photo=photo)
         bot.send_message(message.from_user.id,
