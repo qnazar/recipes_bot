@@ -1,7 +1,7 @@
 import os
 
 from telebot import TeleBot
-from telebot.types import Message, ReplyKeyboardMarkup, KeyboardButton, BotCommand, ReplyKeyboardRemove
+from telebot.types import Message, ReplyKeyboardMarkup, KeyboardButton, BotCommand
 from django.conf import settings
 
 from ...models import User, Recipe
