@@ -107,8 +107,11 @@ def recipe_info(message: Message):
     else:
         if recipe.photo:
             photo = os.path.join(settings.MEDIA_ROOT, str(recipe.photo))
-            with open(photo, 'rb') as photo:
-                bot.send_photo(message.from_user.id, photo=photo)
+            try:
+                with open(photo, 'rb') as photo:
+                    bot.send_photo(message.from_user.id, photo=photo)
+            except FileNotFoundError:
+                bot.send_message(message.from_user.id, f'{photo}')
         bot.send_message(message.from_user.id,
                          f'<strong>{recipe.name}</strong>\n{recipe.description}',
                          parse_mode='HTML')
